@@ -58,15 +58,10 @@
 
     <distributionManagement>
         <repository>
-            <id>dushu-RELEASES</id>
-            <name>NexusReleaseRepository</name>
-            <url>http://maven.dushu365.com/nexus/content/repositories/releases/</url>
+            <id>maven-public</id>
+            <name>Nexus aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-        <snapshotRepository>
-            <id>dushu-SNAPSHOTS</id>
-            <name>NexusSnapshotRepository</name>
-            <url>http://maven.dushu365.com/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
     </distributionManagement>
     <modules>
         <module>chat-server</module>
