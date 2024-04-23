@@ -7,12 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.integration.config.EnableIntegration;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 @EnableAutoConfiguration
 @SpringBootApplication
+@EnableIntegration
 public class Application {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
 
