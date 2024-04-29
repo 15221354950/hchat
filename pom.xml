@@ -66,6 +66,6 @@
     <modules>
         <module>chat-server</module>
         <module>chat-dao</module>
-        <module>chat-integration-server</module>
+        <module>chat-socket-server</module>
     </modules>
 </project>

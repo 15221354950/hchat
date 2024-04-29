@@ -70,13 +70,7 @@
         </dependency>
         <dependency>
             <groupId>com.hong</groupId>
-            <artifactId>chat-dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.hong</groupId>
-            <artifactId>chat-integration-server</artifactId>
+            <artifactId>chat-socket-server</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -103,6 +97,12 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
             <version>3.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
