@@ -58,7 +58,7 @@ public class NetServer {
                             ch.pipeline().addLast(new IdleStateHandler(4, 8, 12));
                             //添加超时检查机制--事件消息捕获类
                             //在处理器该userEventTriggered方法中去处理 IdleStaateEvent(读空闲,写空闲,读写空闲)
-                            ch.pipeline().addLast(new HeartbeatServerHandle());
+                            ch.pipeline().addLast(new HeartbeatServerHandle(false));
 
 
 //                            ch.pipeline().addLast("encoder", new StringEncoder());

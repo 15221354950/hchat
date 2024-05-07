@@ -19,6 +19,7 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
     private static Logger logger = LoggerFactory.getLogger(ChatChannelHandler.class);
 
 
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         logger.info("ChatChannelHandler.channelRead");
@@ -29,6 +30,7 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
                 logger.info("receiveData:{}", receiveData);
                 // todo
             } finally {
+                logger.info("byteBuf.refCnt:{}", byteBuf.refCnt());
                 byteBuf.release();
             }
         }
@@ -51,7 +53,7 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        super.exceptionCaught(ctx, cause);
-        logger.info("exceptionCaught");
+        logger.error("exceptionCaught", cause);
         ctx.close();
     }
 

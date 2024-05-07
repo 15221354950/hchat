@@ -15,9 +15,13 @@ public class HeartbeatServerHandle extends SimpleChannelInboundHandler<Object> {
     private static Logger logger = LoggerFactory.getLogger(HeartbeatServerHandle.class);
     private static ConcurrentHashMap<String, Long> concurrentHashMap = new ConcurrentHashMap<>();
 
+    public HeartbeatServerHandle(boolean autoRelease) {
+        super(autoRelease);
+    }
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object evt) throws Exception {
-            //        判断事件是否是IdleStateEvent
+        //        判断事件是否是IdleStateEvent
         if (evt instanceof IdleStateEvent) {
             String evtState = null;
             String key = ctx.channel().id().asLongText();
