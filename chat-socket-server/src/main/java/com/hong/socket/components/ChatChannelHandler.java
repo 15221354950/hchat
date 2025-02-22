@@ -18,8 +18,6 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
 
     private static Logger logger = LoggerFactory.getLogger(ChatChannelHandler.class);
 
-
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         logger.info("ChatChannelHandler.channelRead");
@@ -34,17 +32,14 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
                 byteBuf.release();
             }
         }
-        ctx.write(Unpooled.copiedBuffer(ctx.channel().id() + "收到消息啦", StandardCharsets.UTF_8));
-//                ctx.writeAndFlush(Unpooled.copiedBuffer("收到", StandardCharsets.UTF_8));
-//                ctx.flush();
+//        ctx.write(Unpooled.copiedBuffer(ctx.channel().id() + "收到消息啦", StandardCharsets.UTF_8));
         logger.info("response.over");
-//        super.channelRead(ctx, msg);
     }
 
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        logger.info("channelReadComplete");
+//        logger.info("channelReadComplete");
 //        super.channelReadComplete(ctx);
 //        ctx.writeAndFlush(Unpooled.copiedBuffer("收到over", StandardCharsets.UTF_8));
         ctx.flush();
@@ -52,8 +47,7 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-//        super.exceptionCaught(ctx, cause);
-        logger.error("exceptionCaught", cause);
+        cause.printStackTrace();
         ctx.close();
     }
 
@@ -65,8 +59,6 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
-//        Channel channel =
-                ctx.channel().read();
         InetSocketAddress socketAddress = (InetSocketAddress) ctx.channel().remoteAddress();
         InetAddress inetAddress = socketAddress.getAddress();
         logger.info("channelActive.IP:{},name:{}", inetAddress.getHostAddress(), ctx.name());
@@ -82,7 +74,6 @@ public class ChatChannelHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         logger.info("channelInactive");
-//        super.channelInactive(ctx);
         ctx.close();
     }
 
